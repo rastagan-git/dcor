@@ -15,6 +15,23 @@ This package provide functions for calculating several statistics
 related with distance covariance and distance correlation, including
 biased and unbiased estimators of both dependency measures.
 
+Input shapes
+------------
+
+For :func:`dcor.distance_correlation`, pass one- or two-dimensional arrays.
+The first axis contains paired observations; a second axis contains the
+components of each random vector. Thus ``x`` and ``y`` may have shapes
+``(n, p)`` and ``(n, q)``, with different numbers of components but the same
+number of observations. Shape ``(n,)`` represents a scalar random variable.
+
+Random vectors may have an arbitrary number of components, but this does not
+mean that arbitrary-rank tensors or batch axes are accepted. For example,
+an input with shape ``(n, 2, 5)`` can be reshaped to ``(n, 10)`` if the last
+two axes jointly describe the features of each observation. This computes
+one dependence measure between random vectors, not separate correlations
+for each tensor slice. See the :func:`dcor.distance_correlation` examples and
+:func:`dcor.rowwise` for separate calculations over multiple datasets.
+
 References
 ----------
 .. bibliography:: refs.bib

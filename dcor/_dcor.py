@@ -991,12 +991,12 @@ def distance_correlation(
     Usual (biased) estimator for the distance correlation.
 
     Args:
-        x: First random vector. The columns correspond with the individual
-            random variables while the rows are individual instances of the
-            random vector.
-        y: Second random vector. The columns correspond with the individual
-            random variables while the rows are individual instances of the
-            random vector.
+        x: Observations of the first random vector, with shape ``(n,)`` or
+            ``(n, p)``. Rows are observations and columns are components of
+            the random vector.
+        y: Observations of the second random vector, with shape ``(n,)`` or
+            ``(n, q)``. It must have the same number of observations as ``x``;
+            the number of components may differ.
         exponent: Exponent of the Euclidean distance, in the range
             :math:`(0, 2)`. Equivalently, it is twice the Hurst parameter of
             fractional Brownian motion.
@@ -1010,6 +1010,18 @@ def distance_correlation(
     See Also:
         distance_correlation_sqr
         u_distance_correlation_sqr
+
+    Notes:
+        Inputs must be one- or two-dimensional arrays. Arbitrary dimension of
+        the random vectors refers to the number of components (``p`` and
+        ``q``), not to the number of array axes. A one-dimensional input is
+        treated as observations of a scalar random variable.
+
+        Higher-dimensional tensors are not automatically flattened or treated
+        as batches of separate calculations. If each tensor row is one
+        observation and the remaining axes are components of that observation,
+        reshape to ``(n, -1)`` to combine those components. For separate
+        calculations on multiple datasets, see :func:`rowwise`.
 
     Examples:
         >>> import numpy as np
@@ -1027,6 +1039,15 @@ def distance_correlation(
         1.0
         >>> dcor.distance_correlation(a, b, exponent=0.5) # doctest: +ELLIPSIS
         0.6703214...
+
+        Keep the observation axis when combining tensor-valued features:
+
+        >>> samples = np.arange(40.).reshape(4, 2, 5)
+        >>> vectors = samples.reshape(samples.shape[0], -1)
+        >>> vectors.shape
+        (4, 10)
+        >>> dcor.distance_correlation(vectors, b) # doctest: +ELLIPSIS
+        0.5266403...
 
     """
     return _sqrt(
