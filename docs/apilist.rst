@@ -5,6 +5,24 @@ List of functions
 -----------------
 A complete list of all functions provided by dcor.
 
+Input shapes for distance covariance and distance correlation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The biased and unbiased or bias-corrected estimators in the next two sections,
+including their statistics functions, accept one- or two-dimensional arrays.
+The first axis contains paired observations; a second axis contains the
+components of each random vector. Thus ``x`` and ``y`` may have shapes
+``(n, p)`` and ``(n, q)``, with different numbers of components but the same
+number of observations. Shape ``(n,)`` represents a scalar random variable.
+
+Random vectors may have an arbitrary number of components, but this does not
+mean that arbitrary-rank tensors or batch axes are accepted. For example,
+an input with shape ``(n, 2, 5)`` should be reshaped to ``(n, 10)`` if the last
+two axes jointly describe the features of each observation, before passing
+it to one of these dependency measures. This computes one dependence measure
+between random vectors, not separate correlations for each tensor slice.
+See the :func:`dcor.distance_correlation` examples and :func:`dcor.rowwise`
+for separate calculations over multiple datasets.
+
 Biased estimators for distance covariance and distance correlation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 These functions compute the usual (biased) estimators for the distance

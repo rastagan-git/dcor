@@ -449,12 +449,12 @@ def distance_covariance_sqr(
     Usual (biased) estimator for the squared distance covariance.
 
     Args:
-        x: First random vector. The columns correspond with the individual
-            random variables while the rows are individual instances of the
-            random vector.
-        y: Second random vector. The columns correspond with the individual
-            random variables while the rows are individual instances of the
-            random vector.
+        x: Observations of the first random vector, with shape ``(n,)`` or
+            ``(n, p)``. Rows are observations and columns are components of
+            the random vector.
+        y: Observations of the second random vector, with shape ``(n,)`` or
+            ``(n, q)``. It must have the same number of observations as ``x``;
+            the number of components may differ.
         exponent: Exponent of the Euclidean distance, in the range
             :math:`(0, 2)`. Equivalently, it is twice the Hurst parameter of
             fractional Brownian motion.
@@ -509,12 +509,12 @@ def u_distance_covariance_sqr(
     Unbiased estimator for the squared distance covariance.
 
     Args:
-        x: First random vector. The columns correspond with the individual
-            random variables while the rows are individual instances of the
-            random vector.
-        y: Second random vector. The columns correspond with the individual
-            random variables while the rows are individual instances of the
-            random vector.
+        x: Observations of the first random vector, with shape ``(n,)`` or
+            ``(n, p)``. Rows are observations and columns are components of
+            the random vector.
+        y: Observations of the second random vector, with shape ``(n,)`` or
+            ``(n, q)``. It must have the same number of observations as ``x``;
+            the number of components may differ.
         exponent: Exponent of the Euclidean distance, in the range
             :math:`(0, 2)`. Equivalently, it is twice the Hurst parameter of
             fractional Brownian motion.
@@ -570,12 +570,12 @@ def distance_covariance(
     Usual (biased) estimator for the distance covariance.
 
     Args:
-        x: First random vector. The columns correspond with the individual
-            random variables while the rows are individual instances of the
-            random vector.
-        y: Second random vector. The columns correspond with the individual
-            random variables while the rows are individual instances of the
-            random vector.
+        x: Observations of the first random vector, with shape ``(n,)`` or
+            ``(n, p)``. Rows are observations and columns are components of
+            the random vector.
+        y: Observations of the second random vector, with shape ``(n,)`` or
+            ``(n, q)``. It must have the same number of observations as ``x``;
+            the number of components may differ.
         exponent: Exponent of the Euclidean distance, in the range
             :math:`(0, 2)`. Equivalently, it is twice the Hurst parameter of
             fractional Brownian motion.
@@ -635,12 +635,12 @@ def distance_stats_sqr(
     individual squared distance variances.
 
     Args:
-        x: First random vector. The columns correspond with the individual
-            random variables while the rows are individual instances of the
-            random vector.
-        y: Second random vector. The columns correspond with the individual
-            random variables while the rows are individual instances of the
-            random vector.
+        x: Observations of the first random vector, with shape ``(n,)`` or
+            ``(n, p)``. Rows are observations and columns are components of
+            the random vector.
+        y: Observations of the second random vector, with shape ``(n,)`` or
+            ``(n, q)``. It must have the same number of observations as ``x``;
+            the number of components may differ.
         exponent: Exponent of the Euclidean distance, in the range
             :math:`(0, 2)`. Equivalently, it is twice the Hurst parameter of
             fractional Brownian motion.
@@ -711,12 +711,12 @@ def u_distance_stats_sqr(
     individual squared distance variances.
 
     Args:
-        x: First random vector. The columns correspond with the individual
-            random variables while the rows are individual instances of the
-            random vector.
-        y: Second random vector. The columns correspond with the individual
-            random variables while the rows are individual instances of the
-            random vector.
+        x: Observations of the first random vector, with shape ``(n,)`` or
+            ``(n, p)``. Rows are observations and columns are components of
+            the random vector.
+        y: Observations of the second random vector, with shape ``(n,)`` or
+            ``(n, q)``. It must have the same number of observations as ``x``;
+            the number of components may differ.
         exponent: Exponent of the Euclidean distance, in the range
             :math:`(0, 2)`. Equivalently, it is twice the Hurst parameter of
             fractional Brownian motion.
@@ -791,12 +791,12 @@ def distance_stats(
     individual distance variances.
 
     Args:
-        x: First random vector. The columns correspond with the individual
-            random variables while the rows are individual instances of the
-            random vector.
-        y: Second random vector. The columns correspond with the individual
-            random variables while the rows are individual instances of the
-            random vector.
+        x: Observations of the first random vector, with shape ``(n,)`` or
+            ``(n, p)``. Rows are observations and columns are components of
+            the random vector.
+        y: Observations of the second random vector, with shape ``(n,)`` or
+            ``(n, q)``. It must have the same number of observations as ``x``;
+            the number of components may differ.
         exponent: Exponent of the Euclidean distance, in the range
             :math:`(0, 2)`. Equivalently, it is twice the Hurst parameter of
             fractional Brownian motion.
@@ -868,12 +868,12 @@ def distance_correlation_sqr(
     Usual (biased) estimator for the squared distance correlation.
 
     Args:
-        x: First random vector. The columns correspond with the individual
-            random variables while the rows are individual instances of the
-            random vector.
-        y: Second random vector. The columns correspond with the individual
-            random variables while the rows are individual instances of the
-            random vector.
+        x: Observations of the first random vector, with shape ``(n,)`` or
+            ``(n, p)``. Rows are observations and columns are components of
+            the random vector.
+        y: Observations of the second random vector, with shape ``(n,)`` or
+            ``(n, q)``. It must have the same number of observations as ``x``;
+            the number of components may differ.
         exponent: Exponent of the Euclidean distance, in the range
             :math:`(0, 2)`. Equivalently, it is twice the Hurst parameter of
             fractional Brownian motion.
@@ -928,12 +928,12 @@ def u_distance_correlation_sqr(
     Bias-corrected estimator for the squared distance correlation.
 
     Args:
-        x: First random vector. The columns correspond with the individual
-            random variables while the rows are individual instances of the
-            random vector.
-        y: Second random vector. The columns correspond with the individual
-            random variables while the rows are individual instances of the
-            random vector.
+        x: Observations of the first random vector, with shape ``(n,)`` or
+            ``(n, p)``. Rows are observations and columns are components of
+            the random vector.
+        y: Observations of the second random vector, with shape ``(n,)`` or
+            ``(n, q)``. It must have the same number of observations as ``x``;
+            the number of components may differ.
         exponent: Exponent of the Euclidean distance, in the range
             :math:`(0, 2)`. Equivalently, it is twice the Hurst parameter of
             fractional Brownian motion.
@@ -1040,7 +1040,10 @@ def distance_correlation(
         >>> dcor.distance_correlation(a, b, exponent=0.5) # doctest: +ELLIPSIS
         0.6703214...
 
-        Keep the observation axis when combining tensor-valued features:
+        Here ``samples`` contains four observations, each represented by a
+        two-by-five grid of measurements. If all ten measurements are
+        components of the same random vector, combine those two feature axes
+        while keeping the first axis for the four paired observations:
 
         >>> samples = np.arange(40.).reshape(4, 2, 5)
         >>> vectors = samples.reshape(samples.shape[0], -1)
